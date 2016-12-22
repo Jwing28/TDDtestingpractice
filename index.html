@@ -1,45 +1,36 @@
 <html>
   <head>
+    <script type="text/javascript" src="https://code.angularjs.org/1.4.0-rc.2/angular.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.3/jasmine.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.3/jasmine.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.3/jasmine-html.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.3/boot.min.js"></script>
   </head>
   <body>
+    <!-- This div element corresponds to the  CalculatorController we created via the JavaScript-->
+    <div ng-controller="CalculatorController">
+      <input ng-model="x" type="number">
+      <input ng-model="y" type="number">
+      <strong>{{z}}</strong>
+
+      <input type="button" ng-click="sum()" value="+">
+    </div>  
   </body>
   <script type="text/javascript">
 
-    var calculator = {
-      sum: function (x,y) {
-        return x + y;
-      },
+   angular.module('calculatorApp',[]);
 
-      subtract: function (x,y) {
-        return x-y;
-      },
+   angular.module('calculatorApp').controller('CalculatorController', function CalculatorController($scope) {
 
-      divide: function(x,y) {
-        return y === 0 ? 0 : x / y;
-      }
-    }
+        $scope.z = 0;
+        $scope.sum = function() {
+          $scope.z = $scope.x + $scope.y;
+        };
+   });
 
-    // Paste in the test code here.
-    describe('calculator', function () {
-      
-      it('1 + 1 should equal 2', function () {
-        expect(calculator.sum(1, 1)).toBe(2);
-      });
-
-      it('1 - 1 should equal 0', function () {
-        expect(calculator.subtract(1, 1)).toBe(0);
-      });
-
-      it('2 / 0 should equal 0', function () {
-        expect(calculator.divide(2, 0)).toBe(0);
-      });      
-
-    });
-
+   angular.element(document).ready(function() {
+    angular.bootstrap(document,['calculatorApp'])
+   })
 
   </script>
 </html>
