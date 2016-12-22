@@ -1,0 +1,26 @@
+{
+  "name": "tdd",
+  "version": "1.0.0",
+  "description": "unit testing w/ jasmine",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jwing28/TDDtestingpractice.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jwing28/TDDtestingpractice/issues"
+  },
+  "homepage": "https://github.com/Jwing28/TDDtestingpractice#readme",
+  "devDependencies": {
+    "jasmine": "^2.5.2",
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.3.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-jasmine": "^1.1.0"
+  }
+}
