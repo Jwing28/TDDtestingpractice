@@ -17,6 +17,12 @@ describe('calculator', function () {
       $scope.sum();
       expect($scope.z).toBe(3);
     }); 
+
+    it('z should have default value of zero', function () {
+      var $scope = {};
+      var controller = $controller('CalculatorController', { $scope: $scope });
+      expect($scope.z).toBe(0); 
+    });    
   });
 
 });

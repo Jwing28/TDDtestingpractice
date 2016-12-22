@@ -9,7 +9,7 @@
     <!-- Angular and Angular Mock references -->
     <script type="text/javascript" src="https://code.angularjs.org/1.4.0-rc.2/angular.min.js"></script>
     <script type="text/javascript" src="https://code.angularjs.org/1.4.0-rc.2/angular-mocks.js"></script>
-
+    <script src="../app/calculator.controller.js"></script>
   </head>
   <body>
     <!-- This div element corresponds to the  CalculatorController we created via the JavaScript-->
@@ -21,21 +21,4 @@
       <input type="button" ng-click="sum()" value="+">
     </div>  
   </body>
-  <script type="text/javascript">
-
-   angular.module('calculatorApp',[]);
-
-   angular.module('calculatorApp').controller('CalculatorController', function CalculatorController($scope) {
-
-        $scope.z = 0;
-        $scope.sum = function() {
-          $scope.z = $scope.x + $scope.y;
-        };
-   });
-
-   angular.element(document).ready(function() {
-    angular.bootstrap(document,['calculatorApp'])
-   });
-
-  </script>
 </html>
