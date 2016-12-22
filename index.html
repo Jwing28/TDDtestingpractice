@@ -5,6 +5,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.3/jasmine.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.3/jasmine-html.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.3/boot.min.js"></script>
+
+    <!-- Angular and Angular Mock references -->
+    <script type="text/javascript" src="https://code.angularjs.org/1.4.0-rc.2/angular.min.js"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.4.0-rc.2/angular-mocks.js"></script>
+
   </head>
   <body>
     <!-- This div element corresponds to the  CalculatorController we created via the JavaScript-->
@@ -30,7 +35,34 @@
 
    angular.element(document).ready(function() {
     angular.bootstrap(document,['calculatorApp'])
-   })
+   });
+
+   describe('calculator',function() {
+    //init the module you created for the test
+    beforeEach(angular.mock.module('calculatorApp'));
+
+    var $controller;
+    //inject the controller service into the module 
+      //so we can have access to the properties on scope
+    beforeEach(angular.mock.inject(function(_$controller_) {
+      $controller = _$controller_;
+    }));
+
+    describe('sum',function() {
+      it('1+2 should equal 3', function() {
+        var $scope = {};
+        //gives us an instance of this particular controller
+        //second parameters in curly braces are the arguments for
+        //the controller function itself, in this case $scope
+        var controller = $controller('CalculatorController', {$scope:$scope});
+        $scope.x = 1;
+        $scope.y = 2;
+        $scope.sum();
+        //now that everything exists we can test the properites
+        expect($scope.z).toBe(3);
+      });
+    });
+   });
 
   </script>
 </html>
