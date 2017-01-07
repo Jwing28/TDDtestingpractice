@@ -10,3 +10,7 @@ karma
 
 future: headless browser like phantom would allow
 testing without browser window
+
+Instructions:
+  To run test 
+    -
