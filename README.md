@@ -13,4 +13,8 @@ testing without browser window
 
 Instructions:
   To run test 
-    -
+    -Run npm test: Runs karma test runner, which will run jasmine tests
+    -Load index.html in browser to test for yourself
+
+  Assessment
+    -Review the results of the tests created in the terminal
